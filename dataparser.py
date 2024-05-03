@@ -2,14 +2,16 @@ import json
 
 
 class DataParser:
-
+    """cette class permet d'extraire des données d"un fichier json"""
+    
     def __init__(self, file: str) -> None:
         self._file: str = file
         self._extraction_status: bool = False
         self._data: list = []
         self.extract()
 
-    def extract(self):
+    def extract(self) -> None:
+        """Cette methode permet d'extraire les données à partir du fichier json"""
         try:
             with open(self._file, "r") as f:
                 self._data: list = json.load(f)
@@ -26,6 +28,7 @@ class DataParser:
             return None
 
     def extract_type(self, key: str = "all") -> list:
+        """Cette methode permet de récupérer des données relatif à un seule type d'évènement"""
         if key == "all":
             return self.get_data()
 
@@ -37,4 +40,5 @@ class DataParser:
         return events
 
     def get_data(self) -> list:
+        """Cette methode permet d'obtenir les données du fichier json"""
         return self._data
