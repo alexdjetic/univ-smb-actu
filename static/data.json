@@ -1,0 +1,37 @@
+[
+    {
+        "type": "Electro",
+        "date": "01/07/2024",
+        "titre": "Musilac",
+        "description": "il s'agit d'un évènement d'Electro",
+        "id": 1
+    },
+    {
+        "type": "Rock",
+        "date": "01/07/2024",
+        "titre": "Musilac",
+        "description": "il s'agit d'un évènement de Rock",
+        "id": 2
+    },
+    {
+        "type": "Jazz",
+        "date": "01/07/2024",
+        "titre": "Musilac",
+        "description": "il s'agit d'un évènement de Jazz",
+        "id": 3
+    },
+    {
+        "type": "Electro",
+        "date": "05/07/2024",
+        "titre": "Musilac",
+        "description": "il s'agit d'un évènement de Jazz, mais version 2",
+        "id": 4
+    },
+    {
+        "type": "Concerts",
+        "date": "05/07/2024",
+        "titre": "Musilac",
+        "description": "il s'agit d'un évènement de Jazz, mais version 2",
+        "id": 5
+    }
+]
