@@ -3,16 +3,3 @@
 {% block title %}
 jazz
 {% endblock %}
-
-{% block content %}
-
-{% for event in events %}
-<div>
-    <h2>Le {{ event.date }}: {{ event.titre }}</h2>
-    <p>{{ event.description }}</p>
-</div>
-{% endfor %}
-
-
-
-{% endblock %}
