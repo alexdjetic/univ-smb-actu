@@ -12,5 +12,5 @@ class Commentaire(FlaskForm):
     commentaire = StringField('commentaire', validators=[DataRequired()])
 
 class User(FlaskForm):
-    nom = StringField('nom', validators=[DataRequired()])
+    user = StringField('user', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
