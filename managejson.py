@@ -13,8 +13,10 @@ class ManageJson:
         try:
             with open(self._file, "r") as f:
                 self._data: list = json.load(f)
-        except Exception as e:
-            print(e)
+        except FileNotFoundError:
+            self._data = []
+        except json.JSONDecodeError:
+            self._data = []
 
     def append(self, commentaire: dict) -> None:
         """Cette methode ajoute un commentaire au fichier json"""
@@ -23,7 +25,7 @@ class ManageJson:
 
         try:
             with open(self._file, "w") as f:
-                json.dump(self._data, f)
+                json.dump(self._data, f, indent=4)
         except Exception as e:
             print(e)
 
@@ -38,3 +40,28 @@ class ManageJson:
 
         self.append(data=tmp)
         return tmp != self._data
+
+
+    def delete_ligne(self, id: int) -> bool:
+        """Cette méthode supprime une donnée du fichier JSON avec le numéro de d'identifiant"""
+        self.get_data() 
+        origin_size = len(self._data)
+        tmp: list[dict] = []
+
+        for ligne in self._data:
+            if ligne.get("id", "not valid value") != id:
+                tmp.append(ligne)
+
+        if len(tmp) < origin_size:  # Vérifie que la taille de tmp est inférieure
+            try:
+                with open(self._file, "w") as f:
+                    json.dump(tmp, f, indent=4)
+
+                self._data = tmp 
+                return True
+            except Exception as e:
+                print(f"Une erreur s'est produite lors de l'écriture du fichier: {e}")
+                return False
+
+        return False
+
