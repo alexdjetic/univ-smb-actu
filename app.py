@@ -159,9 +159,6 @@ def delete_event():
     if not request.args.get('id'):
         return redirect(url_for('actualite'))
 
-    print(f"id: {request.args.get('id')}")
-    print(f"type: {type(int(request.args.get('id')))}")
-
     managejson: ManageJson = ManageJson(f"{os.getcwd()}/static/data.json")
     result: bool = managejson.delete_ligne(int(request.args.get('id')))
     # return redirect(url_for('actualite'))

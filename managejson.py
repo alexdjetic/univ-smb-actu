@@ -37,6 +37,5 @@ class ManageJson:
             if ligne.get("id", "not valid value") != id:
                 tmp.append(ligne)
 
-        print(tmp)
         self._data: list = tmp
         return tmp != self._data
