@@ -39,7 +39,7 @@ def actualite():
     if request.method == "POST":
         managejson: ManageJson = ManageJson(f"{os.getcwd()}/static/data.json")
             
-        managejson.append({
+        managejson.append(commentaire={
             "type": "actualite",
             "date": request.form['date'],
             "titre": request.form['titre'],
@@ -79,7 +79,7 @@ def concerts():
     if request.method == "POST":
         managejson: ManageJson = ManageJson(f"{os.getcwd()}/static/data.json")
             
-        managejson.append({
+        managejson.append(commentaire={
             "type": "Concerts",
             "date": request.form['date'],
             "titre": request.form['titre'],
@@ -127,7 +127,7 @@ def commentaire():
     if request.method == "POST":
         managejson: ManageJson = ManageJson(f"{os.getcwd()}/static/commentaire.json")
             
-        managejson.append({
+        managejson.append(commentaire={
             "nom": request.form['nom'],
             "commentaire": request.form['commentaire']
         })

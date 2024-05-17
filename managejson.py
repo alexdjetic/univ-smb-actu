@@ -16,23 +16,16 @@ class ManageJson:
         except Exception as e:
             print(e)
 
-    def append(self, commentaire: dict = {}, data: list = []) -> None:
+    def append(self, commentaire: dict) -> None:
         """Cette methode ajoute un commentaire au fichier json"""
-        if not data:
-                try:
-                    with open(self._file, "w") as f:
-                        json.dump(data, f)
-                except Exception as e:
-                    print(e)
-        else:
-            self.get_data()
-            self._data.append(commentaire)
+        self.get_data()
+        self._data.append(commentaire)
 
-            try:
-                with open(self._file, "w") as f:
-                    json.dump(self._data, f)
-            except Exception as e:
-                print(e)
+        try:
+            with open(self._file, "w") as f:
+                json.dump(self._data, f)
+        except Exception as e:
+            print(e)
 
     def delete_ligne(self, id: int) -> bool:
         """Cette methode supprime une donnée du fichier json"""
