@@ -22,6 +22,7 @@ def get_event(filter: str = "all") -> list:
     
     return dataparser.extract_type(filter)
 
+
 app = Flask(__name__)
 app.secret_key = 'azerty123456789'
 
