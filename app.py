@@ -18,7 +18,7 @@ def get_event(filter: str = "all") -> list:
     dataparser: DataParser = DataParser(f"{os.getcwd()}/static/data.json")
     dataparser.extract()
     
-    return dataparser.extract_type()
+    return dataparser.extract_type(filter)
 
 
 app = Flask(__name__)
