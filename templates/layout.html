@@ -28,6 +28,16 @@
             <th scope="col">
                 <h3><a class="nav-link" href="/electro">actualité electro</a></h3>
             </th>
+
+            {% if login == False %}
+            <th scope="col">
+                <h3><a class="nav-link" href="/login">login</a></h3>
+            </th>
+            {% else %}
+            <th scope="col">
+                <h3><a class="nav-link" href="/logout">logout</a></h3>
+            </th>
+            {% endif %}
         </tr>
         </thead>
     </table>
@@ -69,6 +79,9 @@
         <div class="card-body mx-auto">
             <p class="card-text">{{ event.description }}</p>
         </div>
+        <button type="button" class="btn btn-outline-danger">
+            <a class="nav-link" href="/delete?id={{ event.id }}">supprimer</a>
+        </button>
     </div>
     {% endfor %}
     <br>

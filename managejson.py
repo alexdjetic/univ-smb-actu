@@ -23,7 +23,20 @@ class ManageJson:
 
         try:
             with open(self._file, "w") as f:
-                #f.write(json.dumps(self._data))
+                # f.write(json.dumps(self._data))
                 json.dump(self._data, f)
         except Exception as e:
             print(e)
+
+    def delete_ligne(self, id: int) -> bool:
+        """Cette methode supprime une donnée du fichier json"""
+        tmp: list = []
+        self.get_data()
+
+        for ligne in self._data:
+            if ligne.get("id", "not valid value") != id:
+                tmp.append(ligne)
+
+        print(tmp)
+        self._data: list = tmp
+        return tmp != self._data
