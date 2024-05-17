@@ -10,3 +10,7 @@ class Event(FlaskForm):
 class Commentaire(FlaskForm):
     nom = StringField('nom', validators=[DataRequired()])
     commentaire = StringField('commentaire', validators=[DataRequired()])
+
+class User(FlaskForm):
+    nom = StringField('nom', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired()])
