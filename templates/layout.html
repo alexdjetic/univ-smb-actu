@@ -72,18 +72,30 @@
         </thead>
     </table>
     <div id="content">{% block content %}{% endblock %}</div>
-    {% for event in events %}
-    <div class="card mx-auto" style="width: 100%;">
-        <h1 class="card-title mx-auto">{{ event.titre }}</h1>
-        <h6 class="card-subtitle mb-2 text-muted mx-auto">{{ event.date }}</h6>
-        <div class="card-body mx-auto">
-            <p class="card-text">{{ event.description }}</p>
-        </div>
-        <button type="button" class="btn btn-outline-danger">
-            <a class="nav-link" href="/delete?id={{ event.id }}">supprimer</a>
-        </button>
-    </div>
-    {% endfor %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">date</th>
+            <th scope="col">description</th>
+            <th scope="col">supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <th scope="col">{{ event.titre }}</th>
+                <th scope="col">{{ event.date }}</th>
+                <th scope="col">{{ event.description }}</th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-danger">
+                        <a class="nav-link" href="/delete?id={{ event.id }}">supprimer</a>
+                    </button>
+                </th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <br>
     <button type="button" class="btn btn-secondary">Poster un nouveau commentaire</button><br>
     <form action="/commentaire" method="post">

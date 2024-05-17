@@ -4,6 +4,9 @@ ports:
   - port: 5000
     onOpen: open-preview
     description: University of Savoy - Flask Sample app
+  - port: 5001
+    onOpen: open-preview
+    description: University of Savoy - Flask Sample app
 
 tasks:
   - init: >
