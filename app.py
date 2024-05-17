@@ -140,17 +140,16 @@ def commentaire():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    form = User()
-    if form.validate_on_submit():
+    if request.method == "POST":
         if session.get("user", "NA") == "NA":
-            session["user"] = form.user.data
-            session["password"] = form.password.data
+            session["user"] = request.form['user']
+            session["password"] = request.form['password']
             return redirect(url_for('actualite'))
         else:
             return redirect(url_for('actualite'))
     else:
-        islogin: bool = True if len(session) > 0 else False
-        return render_template("login.html", login=islogin, form=form)
+        islogin: bool = True if len(session) > 0 else False 
+        return render_template("login.html", login=islogin)
 
 
 @app.route("/logout", methods=["GET"])
